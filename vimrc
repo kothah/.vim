@@ -16,7 +16,10 @@ filetype off
 
 call pathogen#infect()
 call pathogen#helptags()
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Auto Pairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsFlyMode = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
@@ -46,6 +49,32 @@ let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/'  }  }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-Latex Suite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:tex_flavor = 'pdflatex'
+let g:tex_BibtexFlavor = 'bibtex' "biber
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_ViewRule_pdf = 'preview'
+let g:Tex_ViewRule_ps = 'preview'
+let g:livepreview_previewer = 'preview'
+let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_IgnoredWarnings =
+    \'Marginpar'."\n".
+    \'Underfull'."\n".
+    \'Overfull'."\n".
+    \'specifier changed to'."\n".
+    \'You have requested'."\n".
+    \'LaTeX Font Warning:'."\n".
+    \'LaTeX Warning: File %.%# already exists on the system'."\n".
+    \'Missing number, treated as zero.'."\n".
+    \'There were undefined references'."\n".
+    \'Citation %.%# undefined'
+let g:Tex_IgnoreLevel = 6
+let g:Tex_UseMakefile = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
@@ -265,7 +294,7 @@ set foldcolumn=1
 syntax enable
 
 try
-    colorscheme base16-default
+    colorscheme base16-default-dark
 catch
 endtry
 
