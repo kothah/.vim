@@ -26,7 +26,7 @@
 	path = bundle/vim-clang-format
 	url = git://github.com/rhysd/vim-clang-format.git
 [submodule "bundle/gitgutter"]
-	path = bundle/gitgutter
+	path = bundle/vim-gitgutter
 	url = git://github.com/jisaacks/GitGutter.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
