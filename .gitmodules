@@ -25,3 +25,21 @@
 [submodule "bundle/vim-clang-format"]
 	path = bundle/vim-clang-format
 	url = git://github.com/rhysd/vim-clang-format.git
+[submodule "bundle/gitgutter"]
+	path = bundle/gitgutter
+	url = git://github.com/jisaacks/GitGutter.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-sensible"]
+	path = bundle/vim-sensible
+	url = git://github.com/tpope/vim-sensible.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = git://github.com/terryma/vim-multiple-cursors.git
+[submodule "bundle/airline-themes"]
+	path = bundle/airline-themes
+	url = git://github.com/AnthonyDiGirolamo/airline-themes.git
