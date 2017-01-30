@@ -13,3 +13,15 @@
 [submodule "bundle/autopairs"]
 	path = bundle/autopairs
 	url = git://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = git://github.com/vim-airline/vim-airline.git
+[submodule "bundle/vim-bufferline"]
+	path = bundle/vim-bufferline
+	url = git://github.com/bling/vim-bufferline.git
+[submodule "bundle/vim-clang-format"]
+	path = bundle/vim-clang-format
+	url = git://github.com/rhysd/vim-clang-format.git
