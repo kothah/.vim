@@ -1,177 +1,10 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file
-filetype plugin on
-
-"autoload when saving
-autocmd! bufwritepost .vimrc source %
-autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
-
-set nocompatible              " be iMproved, required
-set number                    " show line number
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" activate pathogen
-filetype off                  " required
-call pathogen#infect()
-call pathogen#helptags()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Auto Pairs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:AutoPairsFlyMode = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark
-map <leader>nf :NERDTreeFind<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Commentor 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/'  }  }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-Latex Suite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:tex_flavor = 'pdflatex'
-let g:tex_BibtexFlavor = 'bibtex' "biber
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_ViewRule_pdf = 'preview'
-let g:Tex_ViewRule_ps = 'preview'
-let g:livepreview_previewer = 'preview'
-let g:Tex_MultipleCompileFormats = 'pdf'
-let g:Tex_IgnoredWarnings =
-    \'Marginpar'."\n".
-    \'Underfull'."\n".
-    \'Overfull'."\n".
-    \'specifier changed to'."\n".
-    \'You have requested'."\n".
-    \'LaTeX Font Warning:'."\n".
-    \'LaTeX Warning: File %.%# already exists on the system'."\n".
-    \'Missing number, treated as zero.'."\n".
-    \'There were undefined references'."\n".
-    \'Citation %.%# undefined'
-let g:Tex_IgnoreLevel = 6
-let g:Tex_UseMakefile = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-multiple-cursors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_next_key="\<C-s>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-airline config (force color)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme="kalisi"
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols='unicode'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic (syntax checker)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python
-" let g:syntastic_python_checkers=['pyflakes']
-
-" Javascript
-" let g:syntastic_javascript_checkers = ['jshint']
-
-" Go
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-" Custom CoffeeScript SyntasticCheck
-"func! SyntasticCheckCoffeescript()
-"    let l:filename = substitute(expand("%:p"), '\(\w\+\)\.coffee', '.coffee.\1.js', '')
-"    execute "tabedit " . l:filename
-"    execute "SyntasticCheck"
-"    execute "Errors"
-"endfunc
-"nnoremap <silent> <leader>l :call SyntasticCheckCoffeescript()<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"=> Git gutter (Git diff)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:gitgutter_enabled=0
-"nnoremap <silent> <leader>d :GitGutterToggle<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"=> svn gutter (svn diff)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:svngutter_enabled=0
-"nnoremap <silent> <leader>d :GitGutterToggle<cr>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set the runtime path to include Vundle and initialize
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/Documents/testingLab/obslib_3879/build/.ycm_extra_conf.py'
-
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-let g:Show_diagnostics_ui = 1 "default 1
-
-"let g:clang_format#code_style = 'google'
-
-set tags=./tags,tags;
-set autochdir
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_always_populate_location_list = 1 "default 0
-let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
-let g:ycm_seed_identifiers_with_syntax = 1
-
-let g:ycm_complete_in_strings = 1 "default 1
-let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
-let g:ycm_path_to_python_interpreter = '' "default ''
-
-
-let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
-let g:ycm_server_log_level = 'info' "default info
-
-let g:ycm_confirm_extra_conf = 1
-
-let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-let g:ycm_filetype_whitelist = { '*': 1 }
-let g:ycm_key_invoke_completion = '<C-Space>'
-
-let g:clang_format#style_options = {"AccessModifierOffset" : -4,"AllowShortIfStatementsOnASingleLine" : "true","AlwaysBreakTemplateDeclarations" : "true","Standard" : "C++11"}
-
-" map to <Leader>cf in C++ code
-" autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-" autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-" " if you install vim-operator-user
-" autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" " Toggle auto formatting:
-" nmap <Leader>C :ClangFormatAutoToggle<CR>
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" All of your Plugins must be added before the following line
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"updated by: HARDIK KOTHARI""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
+
+"    -> Plugins first :)
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -189,6 +22,126 @@ let g:clang_format#style_options = {"AccessModifierOffset" : -4,"AllowShortIfSta
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins First
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
+set shellslash
+set nocompatible              " be iMproved, required
+
+
+" activate pathogen
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The following is for vim-latex:
+let g:tex_flavor = 'pdflatex'
+let g:tex_BibtexFlavor = 'bibtex' "biber
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_ViewRule_pdf = 'preview'
+let g:Tex_ViewRule_ps = 'preview'
+let g:livepreview_previewer = 'preview'
+let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_IgnoredWarnings =
+            \'Marginpar'."\n".
+            \'Underfull'."\n".
+            \'Overfull'."\n".
+            \'specifier changed to'."\n".
+            \'You have requested'."\n".
+            \'LaTeX Font Warning:'."\n".
+            \'LaTeX Warning: File %.%# already exists on the system'."\n".
+            \'Missing number, treated as zero.'."\n".
+            \'There were undefined references'."\n".
+            \'Citation %.%# undefined'
+let g:Tex_IgnoreLevel = 6
+let g:Tex_UseMakefile = 0
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" youcompleteme settings
+let g:ycm_confirm_extra_conf = 0
+
+let g:clang_format#command = '~/bin/clang-format'
+let g:clang_format#detect_style_format = 1
+let g:clang_format#auto_formatexpr = 1
+let g:clang_format#auto_format_on_insert_leave = 1
+let g:clang_format#auto_format = 2
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"airline stuff
+let g:airline_theme='kalisi'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nerdtree settings
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeWinSize = 25
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/'  }  }
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"explorer mappings
+nnoremap <f2> :NERDTreeToggle<CR>
+nnoremap <f3> :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"tagbar settings
+autocmd vimenter * Tagbar " start tagbar automatically
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"base16-color
+let base16colorspace=256
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-multiple-cursors
+let g:multi_cursor_next_key="\<C-s>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Git gutter (Git diff)
+let g:gitgutter_enabled=0
+nnoremap <silent> <leader>d :GitGutterToggle<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -203,10 +156,10 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 "show incomplete cmds down the bottom
-set showcmd 
+set showcmd
 "show current mode down the bottom
-set showmode 
-
+set showmode
+set number
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -303,7 +256,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme base16-default-dark
+    colorscheme base16-default
 catch
 endtry
 
@@ -322,7 +275,8 @@ set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-set colorcolumn=+1
+let &colorcolumn=join(range(121,999),",")
+hi ColorColumn guibg=#2c2d27 ctermbg=235
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -503,6 +457,8 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+"spell check when writing commit logs
+autocmd filetype latex,tex,md,markdown,svn,*commit* setlocal spell
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
