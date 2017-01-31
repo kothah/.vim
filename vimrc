@@ -35,8 +35,8 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The following is for vim-latex:
 let g:tex_flavor = 'pdflatex'
@@ -74,7 +74,7 @@ let g:clang_format#auto_format = 2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "airline stuff
-let g:airline_theme='kalisi'
+let g:airline_theme = 'simple'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
@@ -104,6 +104,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<CR>
 nnoremap <f3> :TagbarToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-multiple-cursors
+let g:multi_cursor_next_key="\<C-s>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tagbar settings
@@ -114,36 +117,14 @@ autocmd vimenter * Tagbar " start tagbar automatically
 let base16colorspace=256
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-multiple-cursors
-let g:multi_cursor_next_key="\<C-s>"
-
+"vim-sensible
+set diffopt+=vertical
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Git gutter (Git diff)
-let g:gitgutter_enabled=0
+let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
@@ -264,7 +245,11 @@ set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
+    colorscheme base16-default
+    set encodinf=utf-8
+    set guifont=Inconsolata\ for\ Powerline:h15
+    let g:Powerline_symbols = 'fancy'
+    set guifont=~/Library/Fonts:h16
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
@@ -307,9 +292,9 @@ set smartcase
 set linebreak
 set tw=120
 
-set autoindent "Auto indent
-set smartindent "Smart indent
-set wrap "Wrap lines
+set autoindent      "Auto indent
+set smartindent     "Smart indent
+set wrap            "Wrap lines
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
@@ -378,9 +363,9 @@ endtry
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
-""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
 
@@ -463,19 +448,6 @@ autocmd filetype latex,tex,md,markdown,svn,*commit* setlocal spell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Set font according to system
-if has("mac") || has("macunix")
-    set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
-elseif has("win16") || has("win32")
-    set gfn=Hack:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
-elseif has("gui_gtk2")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
-elseif has("linux")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
-elseif has("unix")
-    set gfn=Monospace\ 11
-endif
-
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
 set guioptions-=r
 set guioptions-=R
