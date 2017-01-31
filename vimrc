@@ -39,13 +39,13 @@ call pathogen#helptags()
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The following is for vim-latex:
-let g:tex_flavor = 'pdflatex'
+let g:tex_flavor = 'latex'
 let g:tex_BibtexFlavor = 'bibtex' "biber
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_ViewRule_pdf = 'preview'
 let g:Tex_ViewRule_ps = 'preview'
 let g:livepreview_previewer = 'preview'
-let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf,aux'
 let g:Tex_IgnoredWarnings =
             \'Marginpar'."\n".
             \'Underfull'."\n".
@@ -117,7 +117,7 @@ autocmd vimenter * Tagbar " start tagbar automatically
 let base16colorspace=256
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-sensible
+"vim-fugitive
 set diffopt+=vertical
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Git gutter (Git diff)
