@@ -236,7 +236,6 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-set t_Co=265
 
 try
     colorscheme base16-default-dark
@@ -250,8 +249,7 @@ if has("gui_running")
     set guioptions-=T
     colorscheme base16-solarized-dark
     set encoding=utf-8
-    set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h12
-    let g:Powerline_symbols = 'fancy'
+    set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h11
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
