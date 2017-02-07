@@ -74,11 +74,10 @@ let g:clang_format#auto_format = 2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "airline stuff
-let g:airline_theme = 'simple'
+let g:airline_theme = 'kalisi'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nerdtree settings
 let g:NERDTreeMouseMode = 2
@@ -104,17 +103,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<CR>
 nnoremap <f3> :TagbarToggle<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-multiple-cursors
 let g:multi_cursor_next_key="\<C-s>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tagbar settings
-autocmd vimenter * Tagbar " start tagbar automatically
+"autocmd vimenter * Tagbar " start tagbar automatically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "base16-color
-let base16colorspace=256
+"let base16colorspace=256
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-fugitive
@@ -123,7 +124,7 @@ set diffopt+=vertical
 "Git gutter (Git diff)
 let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -235,9 +236,10 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
+set t_Co=265
 
 try
-    colorscheme base16-default
+    colorscheme base16-default-dark
 catch
 endtry
 
@@ -245,18 +247,18 @@ set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    colorscheme base16-default
-    set encodinf=utf-8
-    set guifont=Inconsolata\ for\ Powerline:h15
+    set guioptions-=T
+    colorscheme base16-solarized-dark
+    set encoding=utf-8
+    set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h12
     let g:Powerline_symbols = 'fancy'
-    set guifont=~/Library/Fonts:h16
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8
+set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -400,35 +402,6 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.script :call DeleteTrailingWS()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ag searching and cope displaying
-"    requires ag.vim - it's much better than vimgrep/grep
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you Ag after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
-
-" Open Ag and put the cursor in the right position
-map <leader>g :Ag
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with Ag, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
