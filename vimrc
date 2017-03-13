@@ -238,7 +238,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme base16-default-dark
+    colorscheme desert
 catch
 endtry
 
@@ -247,7 +247,7 @@ set background=dark
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
-    colorscheme base16-solarized-dark
+    colorscheme desert
     set encoding=utf-8
     set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h11
     set guioptions-=e
@@ -508,3 +508,20 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" find the word frequency
+function! WordFrequency() range
+  let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
+  let frequencies = {}
+  for word in all
+    let frequencies[word] = get(frequencies, word, 0) + 1
+  endfor
+  new
+  setlocal buftype=nofile bufhidden=hide noswapfile tabstop=20
+  for [key,value] in items(frequencies)
+    call append('$', key."\t".value)
+  endfor
+  sort i
+endfunction
+command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
