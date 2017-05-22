@@ -65,7 +65,9 @@ let g:Tex_UseMakefile = 0
 " youcompleteme settings
 let g:ycm_confirm_extra_conf = 0
 
-let g:clang_format#command = '~/bin/clang-format'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang-format settings
+"let g:clang_format#command = '/opt/moose/llvm-3.9.0/bin/clang-format'
 let g:clang_format#detect_style_format = 1
 let g:clang_format#auto_formatexpr = 1
 let g:clang_format#auto_format_on_insert_leave = 1
@@ -111,7 +113,7 @@ let g:multi_cursor_next_key="\<C-s>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tagbar settings
-"autocmd vimenter * Tagbar " start tagbar automatically
+autocmd vimenter * Tagbar " start tagbar automatically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "base16-color
@@ -289,8 +291,8 @@ set shiftround
 set smartcase
 
 " Linebreak on 120 characters
-set linebreak
-set tw=120
+"set linebreak
+"set tw=120
 
 set autoindent      "Auto indent
 set smartindent     "Smart indent
