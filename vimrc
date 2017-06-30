@@ -21,7 +21,7 @@
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins First
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,9 +69,9 @@ let g:ycm_confirm_extra_conf = 0
 " clang-format settings
 "let g:clang_format#command = '/opt/moose/llvm-3.9.0/bin/clang-format'
 let g:clang_format#detect_style_format = 1
-let g:clang_format#auto_formatexpr = 1
-let g:clang_format#auto_format_on_insert_leave = 1
-let g:clang_format#auto_format = 2
+"let g:clang_format#auto_formatexpr = 1
+"let g:clang_format#auto_format_on_insert_leave = 1
+let g:clang_format#auto_format = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +117,10 @@ autocmd vimenter * Tagbar " start tagbar automatically
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "base16-color
-"let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-fugitive
@@ -168,7 +171,7 @@ set langmenu=en
 set wildmenu
 set wildmode=list:longest,full
 
-" Ignore compiled filesi
+" Ignore compiled files
 set wildignore=*.pdf,*.pyc,*.o,*.obj,*~,*.lo,*.lo.d "stuff to ignore when tab completing
 """"""""""""""""""""""""""""""
 if has("win16") || has("win32")
@@ -240,7 +243,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme gruvbox
 catch
 endtry
 
@@ -249,7 +252,7 @@ set background=dark
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
-    colorscheme desert
+    colorscheme gruvbox
     set encoding=utf-8
     set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h11
     set guioptions-=e
@@ -262,13 +265,15 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-let &colorcolumn=join(range(121,999),",")
-hi ColorColumn guibg=#2c2d27 ctermbg=235
+"hi ColorColumn guibg=#2c2d27 ctermbg=235
+"let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=darkgray
+set colorcolumn=101
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off, since most stuff is in SVN, git etc anyway...
 set nobackup
 set nowritebackup
 set noswapfile
@@ -282,10 +287,10 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 
 set shiftround
 set smartcase
