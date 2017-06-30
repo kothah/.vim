@@ -25,4 +25,4 @@
 ### Who do I talk to? ###
 
 * contact me if you are interested in using this
-* e¨-mail:hardik.kothari2001@gmail.com
+* e-mail:hardik.kothari2001@gmail.com
