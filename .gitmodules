@@ -31,15 +31,9 @@
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = git://github.com/vim-airline/vim-airline-themes.git
-[submodule "bundle/vimtex"]
-	path = bundle/vimtex
-	url = https://github.com/lervag/vimtex.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/gruvbox"]
 	path = bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "bundle/YCM-Generator"]
-	path = bundle/YCM-Generator
-	url = https://github.com/rdnetto/YCM-Generator.git
