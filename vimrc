@@ -67,7 +67,8 @@ let g:ycm_confirm_extra_conf = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format settings
-"let g:clang_format#command = '/opt/moose/llvm-3.9.0/bin/clang-format'
+let g:clang_format#command = '/opt/moose/llvm-3.9.0/bin/clang-format'
+
 let g:clang_format#detect_style_format = 1
 "let g:clang_format#auto_formatexpr = 1
 "let g:clang_format#auto_format_on_insert_leave = 1
@@ -282,7 +283,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+set expandtab ts=2 sw=2 ai
 
 " Be smart when using tabs ;)
 set smarttab
@@ -295,9 +296,9 @@ set softtabstop=2
 set shiftround
 set smartcase
 
-" Linebreak on 120 characters
-"set linebreak
-"set tw=120
+" Linebreak on 80 characters
+set linebreak
+set tw=80
 
 set autoindent      "Auto indent
 set smartindent     "Smart indent
