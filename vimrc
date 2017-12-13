@@ -37,6 +37,11 @@ call pathogen#helptags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+let g:color_coded_enabled=1
+let g:color_coded_filetypes = ['c', 'cpp', 'objc']
+if &diff
+  let g:color_coded_enabled = 0
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The following is for vim-latex:
 let g:tex_flavor = 'latex'
@@ -238,6 +243,8 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable
 
+
+au BufNewFile,BufRead,BufReadPost *.C set syntax=cpp
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -298,7 +305,7 @@ set smartcase
 
 " Linebreak on 80 characters
 set linebreak
-set tw=80
+set tw=100
 
 set autoindent      "Auto indent
 set smartindent     "Smart indent
