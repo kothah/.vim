@@ -1,0 +1,15 @@
+" Update the numbering in the html file
+
+let g:incr = 0
+
+" Define a function
+  
+fu Incr1()
+  let g:incr = g:incr +1
+  return g:incr
+endfu
+
+" Call global substitute
+
+%s:\(\[\)\@<=\d\+\(\]\)\@=:\=Incr1():gc
+

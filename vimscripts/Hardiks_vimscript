@@ -1,0 +1,19 @@
+" Update the numbering in the html file
+
+let g:incr = 0
+
+" Define a function
+  
+fu Incr1()
+  let g:incr = g:incr +1
+  return g:incr
+endfu
+
+" Call global substitute
+
+%s:,: :g  
+%s:^:\r:g
+%s:^$:\=Incr1():g
+%s:^\([0-9]\+\)$:[./line_seg_cut_uo\1]:g
+%s:\(^0\..*$\):type=LineSegmentCutUserObject\rcut_data = '\1'\rtime_start_cut=0.0\rtime_end_cut= 0.0\r[../]:g
+
