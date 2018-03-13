@@ -36,58 +36,133 @@ call pathogen#infect()
 call pathogen#helptags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+" YouCompleteMe settings
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:ycm_confirm_extra_conf = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ultiSnip settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neocomplete Settings
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fzf Configuration
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"color codded settings
 let g:color_coded_enabled=1
 let g:color_coded_filetypes = ['c', 'cpp', 'objc']
 if &diff
   let g:color_coded_enabled = 0
 endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The following is for vim-latex:
-let g:tex_flavor = 'latex'
-let g:tex_BibtexFlavor = 'bibtex' "biber
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_ViewRule_pdf = 'preview'
-let g:Tex_ViewRule_ps = 'preview'
-let g:livepreview_previewer = 'preview'
-let g:Tex_MultipleCompileFormats = 'pdf,aux'
-let g:Tex_IgnoredWarnings =
-            \'Marginpar'."\n".
-            \'Underfull'."\n".
-            \'Overfull'."\n".
-            \'specifier changed to'."\n".
-            \'You have requested'."\n".
-            \'LaTeX Font Warning:'."\n".
-            \'LaTeX Warning: File %.%# already exists on the system'."\n".
-            \'Missing number, treated as zero.'."\n".
-            \'There were undefined references'."\n".
-            \'Citation %.%# undefined'
-let g:Tex_IgnoreLevel = 6
-let g:Tex_UseMakefile = 0
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " youcompleteme settings
-let g:ycm_confirm_extra_conf = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format settings
-let g:clang_format#command = '/opt/moose/llvm-3.9.0/bin/clang-format'
+let g:clang_format#command = '/opt/moose/llvm-5.0.0/bin/clang-format'
 
 let g:clang_format#detect_style_format = 1
 "let g:clang_format#auto_formatexpr = 1
 "let g:clang_format#auto_format_on_insert_leave = 1
 let g:clang_format#auto_format = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"flake-8 settings
+let g:PyFlakeOnWrite = 1
+let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+let g:PyFlakeDefaultComplexity=10
+let g:PyFlakeAggressive = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"airline stuff
+"airline settings
 let g:airline_theme = 'kalisi'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nerdtree settings
+"NERDTree settings
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 25
 
@@ -114,12 +189,9 @@ nnoremap <f3> :TagbarToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-multiple-cursors
-let g:multi_cursor_next_key="\<C-s>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tagbar settings
 autocmd vimenter * Tagbar " start tagbar automatically
+let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "base16-color
@@ -131,11 +203,13 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-fugitive
 set diffopt+=vertical
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Git gutter (Git diff)
 let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

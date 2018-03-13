@@ -1,45 +1,57 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/tagbaar"]
+	url = https://github.com/scrooloose/nerdtree
+[submodule "bundle/tagbar"]
 	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundle/vim-latex"]
-	path = bundle/vim-latex
-	url = git://github.com/vim-latex/vim-latex.git
-[submodule "bundle/autopairs"]
-	path = bundle/autopairs
-	url = git://github.com/jiangmiao/auto-pairs.git
-[submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
-	url = git://github.com/vim-airline/vim-airline.git
-[submodule "bundle/vim-bufferline"]
-	path = bundle/vim-bufferline
-	url = git://github.com/bling/vim-bufferline.git
-[submodule "bundle/vim-clang-format"]
-	path = bundle/vim-clang-format
-	url = git://github.com/rhysd/vim-clang-format.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = git://github.com/Valloric/YouCompleteMe.git
-[submodule "bundle/vim-multiple-cursors"]
-	path = bundle/vim-multiple-cursors
-	url = git://github.com/terryma/vim-multiple-cursors.git
+	url = https://github.com/majutsushi/tagbar
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "bundle/fzf"]
+	path = bundle/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "bundle/fzf.vim"]
+	path = bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "bundle/neocomplete.vim"]
+	path = bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
-	url = git://github.com/vim-airline/vim-airline-themes.git
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "bundle/vim-buffergator"]
+	path = bundle/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator
+[submodule "bundle/vim-bufferline"]
+	path = bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline
+[submodule "bundle/flake8-vim"]
+	path = bundle/flake8-vim
+	url = https://github.com/andviro/flake8-vim.git
+[submodule "bundle/vim-clang-format"]
+	path = bundle/vim-clang-format
+	url = https://github.com/rhysd/vim-clang-format.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/gruvbox"]
-	path = bundle/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/YCM-Generator"]
 	path = bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator.git
-[submodule "bundle/color_coded"]
-	path = bundle/color_coded
-	url = https://github.com/jeaye/color_coded.git
