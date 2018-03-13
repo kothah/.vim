@@ -21,7 +21,7 @@
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins First
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -45,7 +45,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_confirm_extra_conf = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ultiSnip settings
+"ultiSnip setting
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
