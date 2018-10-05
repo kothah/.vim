@@ -25,10 +25,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins First
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set exrc
+set secure
+
 filetype plugin on
 set shellslash
 set nocompatible              " be iMproved, required
-
 
 " activate pathogen
 filetype off
@@ -43,6 +45,10 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ultiSnip setting
@@ -85,48 +91,6 @@ endfunction
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fzf Configuration
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "color codded settings
 let g:color_coded_enabled=1
@@ -140,17 +104,16 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format settings
-let g:clang_format#command = '/opt/moose/llvm-5.0.0/bin/clang-format'
+let g:clang_format#command = '/opt/moose/llvm-5.0.1/bin/clang-format'
 
-let g:clang_format#detect_style_format = 1
-"let g:clang_format#auto_formatexpr = 1
-"let g:clang_format#auto_format_on_insert_leave = 1
-let g:clang_format#auto_format = 1
+let g:clang_format#auto_format=1 " enable autoformatting on buffer write
+let g:clang_format#detect_style_file=1 " detect and load .clang-format file automatically
+let g:clang_format#auto_format_on_insert_leave=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "flake-8 settings
 let g:PyFlakeOnWrite = 1
-let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+let g:PyFlakeCheckers = 'pep8,frosted'
 let g:PyFlakeDefaultComplexity=10
 let g:PyFlakeAggressive = 0
 
@@ -163,6 +126,7 @@ let g:airline#extensions#tagbar#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NERDTree settings
+autocmd vimenter * NERDTree
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 25
 
@@ -181,6 +145,9 @@ let g:NERDAltDelims_java = 1
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/'  }  }
 
+
+let NERDTreeIgnore = ['\.pyc$','\.lo$','\.lo.d$']
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "explorer mappings
@@ -191,7 +158,28 @@ nnoremap <f3> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "tagbar settings
 autocmd vimenter * Tagbar " start tagbar automatically
-let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+"let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let g:tagbar_type_rst = {
+    \ 'ctagstype' : 'reStructuredText',
+    \ 'kinds'     : [
+        \ 'c:chapters',
+        \ 's:sections',
+        \ 'S:subsections',
+        \ 't:subsubsections'
+    \ ],
+    \ 'kind2scope' : {
+        \ 'c' : 'chapter',
+        \ 's' : 'section',
+        \ 'S' : 'subsection',
+        \ 't' : 'subsubsection',
+    \ },
+    \ 'sro' : '|',
+    \ 'scope2kind' : {
+        \ 'chapter' : 'c',
+        \ 'section' : 's',
+    \ },
+    \ 'sort': 0,
+    \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "base16-color
@@ -379,7 +367,7 @@ set smartcase
 
 " Linebreak on 80 characters
 set linebreak
-set tw=100
+"set tw=100
 
 set autoindent      "Auto indent
 set smartindent     "Smart indent
@@ -388,6 +376,11 @@ set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 autocmd FileType make setlocal noexpandtab
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Enable folding
+set foldmethod=indent
+set foldlevel=99
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
@@ -460,6 +453,30 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => PEP8 for python
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"au BufNewFile,BufRead *.py
+"    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+let python_highlight_all=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -536,6 +553,13 @@ map <leader>pp :setlocal paste!<cr>
 " => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c,*.C,*.cpp,*.hpp set filetype=c.doxygen
+augroup END
+
+
+
 try
     set undodir=~/.vim_runtime/temp_dirs/undodir
     set undofile
@@ -600,17 +624,18 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " find the word frequency
-function! WordFrequency() range
-  let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
-  let frequencies = {}
-  for word in all
-    let frequencies[word] = get(frequencies, word, 0) + 1
-  endfor
-  new
-  setlocal buftype=nofile bufhidden=hide noswapfile tabstop=20
-  for [key,value] in items(frequencies)
-    call append('$', key."\t".value)
-  endfor
-  sort i
-endfunction
-command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
+" function! WordFrequency() range
+"  let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
+"  let frequencies = {}
+"  for word in all
+"    let frequencies[word] = get(frequencies, word, 0) + 1
+"  endfor
+"  new
+"  setlocal buftype=nofile bufhidden=hide noswapfile tabstop=20
+"  for [key,value] in items(frequencies)
+"    call append('$', key."\t".value)
+"  endfor
+"  sort i
+"endfunction
+"command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
+

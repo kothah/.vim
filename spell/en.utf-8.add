@@ -13,3 +13,17 @@ Nitsche
 Signorini
 remeshed
 unenriched
+preconditioners
+XFEM
+PETSc
+libMesh
+Schur
+submatrix
+FETI
+pseudoinverse
+submatrices
+pseudoinverses
+Cholesky
+Uzawa
+discretizations
+Hansbo
