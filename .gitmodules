@@ -1,12 +1,15 @@
 [submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
+  path = bundle/nerdtree
+  url = https://github.com/scrooloose/nerdtree
+  branch = master
 [submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = https://github.com/majutsushi/tagbar
+  path = bundle/tagbar
+  url = https://github.com/majutsushi/tagbar
+  branch = master
 [submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
+  path = bundle/supertab
+  url = https://github.com/ervandew/supertab.git
+  branch = master
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
