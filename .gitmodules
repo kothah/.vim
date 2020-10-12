@@ -11,45 +11,45 @@
   url = https://github.com/ervandew/supertab.git
   branch = master
 [submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips
+  path = bundle/ultisnips
+  url = https://github.com/SirVer/ultisnips
 [submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets
+  path = bundle/vim-snippets
+  url = https://github.com/honza/vim-snippets
 [submodule "bundle/gruvbox"]
-	path = bundle/gruvbox
-	url = https://github.com/morhetz/gruvbox
+  path = bundle/gruvbox
+  url = https://github.com/morhetz/gruvbox
 [submodule "bundle/vim-airline-themes"]
-	path = bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
+  path = bundle/vim-airline-themes
+  url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
+  path = bundle/vim-airline
+  url = https://github.com/vim-airline/vim-airline.git
 [submodule "bundle/vim-buffergator"]
-	path = bundle/vim-buffergator
-	url = https://github.com/jeetsukumaran/vim-buffergator
-[submodule "bundle/vim-bufferline"]
-	path = bundle/vim-bufferline
-	url = https://github.com/bling/vim-bufferline
+  path = bundle/vim-buffergator
+  url = https://github.com/jeetsukumaran/vim-buffergator
 [submodule "bundle/flake8-vim"]
-	path = bundle/flake8-vim
-	url = https://github.com/andviro/flake8-vim.git
+  path = bundle/flake8-vim
+  url = https://github.com/andviro/flake8-vim.git
+  branch = master
 [submodule "bundle/vim-clang-format"]
-	path = bundle/vim-clang-format
-	url = https://github.com/rhysd/vim-clang-format.git
+  path = bundle/vim-clang-format
+  url = https://github.com/rhysd/vim-clang-format.git
+  branch = master
 [submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+  path = bundle/vim-gitgutter
+  url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+  path = bundle/vim-fugitive
+  url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
+  path = bundle/YouCompleteMe
+  url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/YCM-Generator"]
-	path = bundle/YCM-Generator
+  path = bundle/YCM-Generator
   url = https://github.com/rdnetto/YCM-Generator.git
   branch = stable
 [submodule "bundle/color_coded"]
-	path = bundle/color_coded
-	url = https://github.com/jeaye/color_coded.git
+  path = bundle/color_coded
+  url = https://github.com/jeaye/color_coded.git
+  branch = master

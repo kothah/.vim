@@ -89,6 +89,8 @@ let g:airline_theme = 'kalisi'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NERDTree settings
