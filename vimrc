@@ -70,22 +70,15 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format settings
-let g:clang_format#command = '/opt/moose/llvm-5.0.1/bin/clang-format'
-
+let g:clang_format#command = '/Users/kothari/opt/anaconda3/envs/moose/bin/clang-format'
 let g:clang_format#auto_format=1 " enable autoformatting on buffer write
 let g:clang_format#detect_style_file=1 " detect and load .clang-format file automatically
 let g:clang_format#auto_format_on_insert_leave=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"flake-8 settings
-let g:PyFlakeOnWrite = 1
-let g:PyFlakeCheckers = 'pep8,frosted'
-let g:PyFlakeDefaultComplexity=10
-let g:PyFlakeAggressive = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "airline settings
-let g:airline_theme = 'kalisi'
+"let g:airline_theme = 'kalisi'
+let g:airline_theme = 'grouvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -273,7 +266,7 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable
 
-
+au BufNewFile,BufRead *.tikz set syntax=tex
 au BufNewFile,BufRead,BufReadPost *.C set syntax=cpp
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -292,7 +285,7 @@ if has("gui_running")
     set guioptions-=T
     colorscheme gruvbox
     set encoding=utf-8
-    set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h11
+    set guifont=MesloLGS\ NF:h10
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
