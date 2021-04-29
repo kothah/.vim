@@ -53,3 +53,6 @@
   path = bundle/color_coded
   url = https://github.com/jeaye/color_coded.git
   branch = master
+[submodule "bundle/vim-autopep8"]
+	path = bundle/vim-autopep8
+	url = https://github.com/tell-k/vim-autopep8.git
